@@ -94,7 +94,6 @@
   </div>
 </template>
 <script>
-import Identicon from "@polkadot/vue-identicon";
 import XLSX from "xlsx";
 import { mapState } from "vuex";
 import SearchInput from "@/views/Components/SearchInput";
@@ -105,8 +104,7 @@ export default {
   components: {
     SearchInput,
     CsvDownload,
-    Pagination,
-    Identicon
+    Pagination
   },
   data() {
     return {

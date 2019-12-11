@@ -7,7 +7,7 @@
         :placeholder="$t('placeholder.search_by')"
       />
       <div class="metadata-chart-wrapper space-between">
-        <metadata class="metadata-component" />
+        <meta-data class="metadata-component" />
         <chart class="chart-component" />
       </div>
       <div class="blocks-transfers-wrapper space-between">
@@ -19,7 +19,7 @@
 </template>
 <script>
 import SearchInput from "@/views/Components/SearchInput";
-import Metadata from "./metadata";
+import MetaData from "./metadata";
 import Chart from "./chart";
 import LatestBlocks from "./latestBlocks";
 import Transfers from "./transfers";
@@ -29,7 +29,7 @@ export default {
   name: "Dashboard",
   components: {
     SearchInput,
-    Metadata,
+    MetaData,
     Chart,
     LatestBlocks,
     Transfers

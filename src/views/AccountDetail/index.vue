@@ -8,7 +8,7 @@
           :placeholder="$t('placeholder.search_by')"
         />
         <div class="not-found">
-          <img class="not-found-img" src="./../../assets/images/404@2x.png" alt="404" />
+          <img class="not-found-img" src="./../../assets/images/404.png" alt="404" />
           <div class="no-data">{{$t('no_data')}}</div>
         </div>
       </template>
@@ -23,9 +23,11 @@
               class="copy-btn"
               v-clipboard:copy="address"
               v-clipboard:success="clipboardSuccess"
-            >{{$t('copy')}}</div>
+            >
+              <icon-svg class="iconfont" icon-class="copy"/>
+            </div>
           </div>
-          <div 
+          <div
             class="header-left align-items-center mobile"
             v-clipboard:copy="address"
             v-clipboard:success="clipboardSuccess"
@@ -192,7 +194,9 @@
                 </el-table-column>
                 <el-table-column width="50">
                   <template>
-                    <icon-svg class="icon" icon-class="from-to-arrow" />
+                    <div class="icon-wrapper">
+                      <icon-svg class="iconfont" icon-class="from-to" />
+                    </div>
                   </template>
                 </el-table-column>
                 <el-table-column min-width="150" prop="to" :label="$t('to')" >
@@ -422,15 +426,8 @@ export default {
         padding: 0 10px;
       }
       .copy-btn {
-        background: var(--main-color-light);
-        border-radius: 2px;
-        font-size: 10px;
-        font-weight: 600;
-        color: #fff;
-        height: 20px;
-        line-height: 20px;
-        padding: 0 8px;
-        margin-left: 10px;
+        font-size: 20px;
+        color: var(--main-color-light);
         cursor: pointer;
       }
     }
@@ -490,13 +487,13 @@ export default {
       padding: 0 23px;
       cursor: pointer;
       border-radius: 2px;
-      border: 1px solid #302b3c;
+      border: 1px solid var(--main-color);
       font-size: 14px;
       font-weight: 600;
-      color: #302b3c;
+      color: var(--main-color);
     }
     .link {
-      color: var(--main-color);
+      color: var(--link-color);
       span {
         cursor: pointer;
       }
@@ -505,6 +502,14 @@ export default {
       vertical-align: -0.5em;
       font-size: 26px;
       user-select: none;
+    }
+    .icon-wrapper {
+      width: 26px;
+      height: 26px;
+      font-size: 26px;
+      border-radius: 50%;
+      background-color: #f6f4fd;
+      color: var(--main-color);
     }
     .expand-form {
       background: #f3f5f9;
@@ -584,9 +589,9 @@ export default {
         line-height: 35px;
         margin-top: 12px;
         border-radius: 2px;
-        color: #302b3c;
+        color: var(--main-color);
         background-color: #FFF;
-        border: 1px solid #302b3c;
+        border: 1px solid var(--main-color);
         text-align: center;
         font-size: 14px;
         font-weight: 600;

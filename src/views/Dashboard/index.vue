@@ -1,11 +1,6 @@
 <template>
   <div class="dashboard-wrapper subscan-content">
     <div class="container">
-      <search-input
-        class="search-input"
-        :selectList="selectList"
-        :placeholder="$t('placeholder.search_by')"
-      />
       <div class="metadata-chart-wrapper space-between">
         <meta-data class="metadata-component" />
         <chart class="chart-component" />
@@ -18,7 +13,6 @@
   </div>
 </template>
 <script>
-import SearchInput from "@/views/Components/SearchInput";
 import MetaData from "./metadata";
 import Chart from "./chart";
 import LatestBlocks from "./latestBlocks";
@@ -28,7 +22,6 @@ import moment from "moment";
 export default {
   name: "Dashboard",
   components: {
-    SearchInput,
     MetaData,
     Chart,
     LatestBlocks,

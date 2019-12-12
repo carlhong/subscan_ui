@@ -1,6 +1,6 @@
 <template>
   <div class="csv-download-component" @click="$emit('downloadClick')">
-    <icon-svg class="icon" icon-class="download"/>
+    <icon-svg class="icon" icon-class="download-csv"/>
     <div class="label align-items-center">{{$t('download_csv_file')}}</div>
   </div>
 </template>
@@ -15,7 +15,8 @@ export default {};
   width: 100%;
   height: 100%;
   border-radius: 2px;
-  border: 1px solid rgba(48, 43, 60, 1);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
   padding: 0 10px;
   display: flex;
   cursor: pointer;
@@ -25,7 +26,6 @@ export default {};
   .label {
     font-size: 14px;
     font-weight: 600;
-    color: rgba(48, 43, 60, 1);
     margin-left: 10px;
     user-select: none;
   }

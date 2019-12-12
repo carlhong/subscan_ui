@@ -1,13 +1,8 @@
 <template>
   <div class="error-page-wrapper subscan-content">
     <div class="container">
-      <search-input
-        class="search-input"
-        :selectList="selectList"
-        :placeholder="$t('placeholder.search_by')"
-      />
       <div class="not-found">
-        <img class="not-found-img" src="./../../assets/images/no-data@2x.png" alt="404" />
+        <img class="not-found-img" src="./../../assets/images/no-related-data.png" alt="404" />
         <div class="no-data">{{$t('no_related_data')}}</div>
       </div>
     </div>
@@ -15,11 +10,7 @@
 </template>
 
 <script>
-import SearchInput from "@/views/Components/SearchInput";
 export default {
-  components: {
-    SearchInput
-  },
   data() {
     return {
       selectList: [

@@ -36,7 +36,7 @@ export default {
     padding: 0;
     .btn-prev,
     .btn-next {
-      background: #5930dd;
+      background: var(--main-color);
       width: 30px;
       height: 30px;
       .el-icon {
@@ -49,17 +49,25 @@ export default {
       }
     }
     .el-pager {
+      li {
+        &:not(.disabled) {
+          &:hover {
+            color: var(--main-color);
+          }
+        }
+      }
       .number {
         box-sizing: border-box;
         min-width: 30px;
         height: 30px;
-        background: rgba(255, 255, 255, 1);
+        background: #FFF;
         border-radius: 2px;
-        border: 1px solid rgba(204, 204, 204, 1);
+        border: 1px solid #CCC;
+        color: #98959F;
         &.active {
-          background: rgba(244, 246, 249, 1) !important;
-          border: 1px solid rgba(48, 43, 60, 1);
-          color: #302b3c !important;
+          background:#FFF !important;
+          border: 1px solid var(--main-color);
+          color: var(--main-color) !important;
         }
       }
     }

@@ -26,7 +26,7 @@
         network: [
           {
             key: "kusama",
-            value: "kusama_cc3"
+            value: "kusama"
           },
           {
             key: "crayfish",
@@ -113,8 +113,9 @@
 
     &.darwinia {
       --main-color: #5930dd;
-      --main-color-light: rgba(89, 48, 221, 0.5);
+      --main-color-light: #5930dd80;
       --main-button-color: #302b3c;
+      --link-color: #4572DE;
       --navbar-bg: linear-gradient(
           315deg,
           rgba(254, 56, 118, 1) 0%,
@@ -122,18 +123,29 @@
           rgba(58, 48, 221, 1) 100%
       );
     }
+
     &.kusama {
-      --main-color: #e6017a;
-      --main-color-light: rgba(230, 1, 122, 0.5);
-      --main-button-color: #e6017a;
-      --navbar-bg: #e6017a;
+      --main-color: #e90979;
+      --main-color-light: #e9097980;
+      --main-button-color: #302b3c;
+      --link-color: #4572DE;
+      --navbar-bg: #000;
     }
 
-    &.kusama_cc3 {
-      --main-color: #e6017a;
-      --main-color-light: rgba(230, 1, 122, 0.5);
-      --main-button-color: #e6017a;
-      --navbar-bg: #e6017a;
+    &.polkadot {
+      --main-color: #e90979;
+      --main-color-light: #e9097980;
+      --main-button-color: #302b3c;
+      --link-color: #4572DE;
+      --navbar-bg: #e90979;
+    }
+
+    &.edgeware {
+      --main-color: #000;
+      --main-color-light: #00000080;
+      --main-button-color: #302b3c;
+      --link-color: #4572DE;
+      --navbar-bg: #000;
     }
 
     --black-color: #302b3c;
@@ -141,6 +153,31 @@
       .main {
         padding-left: 20px;
         padding-right: 20px;
+      }
+      > .nav-bar-wrapper {
+        height: 125px;
+        &.is-home-page {
+          height: 125px;
+          .nav-bar-search {
+            margin-top: 10px;
+          }
+        }
+        .nav-bar-search {
+          display: block;
+          padding: 0 20px;
+          margin-top: 10px;
+          > div.search-input-wrapper {
+            width: 100%;
+          }
+        }
+        .container {
+          height: 50px;
+        }
+      }
+      .container {
+        .search-input-wrapper {
+          display: none;
+        }
       }
     }
   }

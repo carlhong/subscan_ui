@@ -20,6 +20,16 @@ export default {
       sourceSelected: state => state.global.sourceSelected
     })
   },
+  data() {
+    return {
+      colorMap: {
+        darwinia: "#5930DD",
+        kusama: "#E90979",
+        polkadot: "#E90979",
+        edgeware: "#000000"
+      }
+    }
+  },
   created() {
     GLOBAL.vbus.$on("CHANGE_SOURCE", source => {
       myChart.setOption({
@@ -31,41 +41,12 @@ export default {
               y: 0,
               x2: 0,
               y2: 1,
-              colorStops: [
-                {
-                  offset: 0,
-                  color:
-                    source === "darwinia"
-                      ? "rgba(138, 193, 243, 1)"
-                      : "rgba(236, 153, 160, 1)"
-                },
-                {
-                  offset: 0.6,
-                  color:
-                    source === "darwinia"
-                      ? "rgba(138, 193, 243, 0.9)"
-                      : "rgba(236, 153, 160, 0.9)"
-                },
-                {
-                  offset: 0.8,
-                  color:
-                    source === "darwinia"
-                      ? "rgba(231, 243, 254, 1)"
-                      : "rgba(253, 239, 241, 1)"
-                },
-                {
-                  offset: 1,
-                  color: "rgba(255, 255, 255, 1)"
-                }
-              ]
+              colorStops: this.getColorStop(source)
             }
           },
           lineStyle: {
             width: 1,
-            color:
-              source === "darwinia"
-                ? "rgba(138, 193, 243, 1)"
-                : "rgba(236, 153, 160, 1)"
+            color: this.colorMap(source || 'darwinia')
           }
         }
       });
@@ -132,9 +113,17 @@ export default {
         yAxis: [
           {
             type: "value",
-            show: false,
+            show: true,
             splitLine: {
-              show: false
+              show: true,
+              lineStyle: {
+                color: '#F4F4F4'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                color: '#F4F4F4'
+              }
             }
           }
         ],
@@ -150,41 +139,12 @@ export default {
                 y: 0,
                 x2: 0,
                 y2: 1,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color:
-                      this.sourceSelected === "darwinia"
-                        ? "rgba(138, 193, 243, 1)"
-                        : "rgba(236, 153, 160, 1)"
-                  },
-                  {
-                    offset: 0.6,
-                    color:
-                      this.sourceSelected === "darwinia"
-                        ? "rgba(138, 193, 243, 0.9)"
-                        : "rgba(236, 153, 160, 0.9)"
-                  },
-                  {
-                    offset: 0.8,
-                    color:
-                      this.sourceSelected === "darwinia"
-                        ? "rgba(231, 243, 254, 1)"
-                        : "rgba(253, 239, 241, 1)"
-                  },
-                  {
-                    offset: 1,
-                    color: "rgba(255, 255, 255, 1)"
-                  }
-                ]
+                colorStops: this.getColorStop(this.sourceSelected)
               }
             },
             lineStyle: {
               width: 1,
-              color:
-                this.sourceSelected === "darwinia"
-                  ? "rgba(138, 193, 243, 1)"
-                  : "rgba(236, 153, 160, 1)"
+              color: this.colorMap[this.sourceSelected || "darwinia"]
             },
             // itemStyle: {
             //   normal: {
@@ -195,6 +155,27 @@ export default {
           }
         ]
       });
+    },
+    getColorStop(source) {
+      let sourceColor = this.colorMap[source || "darwinia"];
+      return [
+        {
+          offset: 0,
+          color: sourceColor + '99' // 透明度60%
+        },
+        {
+          offset: 0.6,
+          color: sourceColor + '4D' // 透明度30%
+        },
+        {
+          offset: 0.8,
+          color: sourceColor + '33' // 透明度20%
+        },
+        {
+          offset: 1,
+          color: sourceColor + '1A' // 透明度10%
+        }
+      ]
     }
   }
 };

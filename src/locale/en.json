@@ -26,6 +26,9 @@
   "destination": "Destination",
   "donate": "DONATE",
   "download_csv_file": "Download CSV File",
+  "error": {
+    "404": "Not Found"
+  },
   "event": "Event",
   "event_id": "Event ID",
   "events": "Events",
@@ -35,6 +38,7 @@
   "extrinsic_id": "Extrinsic ID",
   "extrinsics_root": "Extrinsics Root",
   "extrinsics": "Extrinsics",
+  "fold_up": "Fold Up",
   "for": "For",
   "from": "From",
   "hash": "Hash",
@@ -54,7 +58,7 @@
   "parameters": "Parameters",
   "parent_hash": "Parent Hash",
   "placeholder": {
-    "search_by": "Block / Extrinsic / Account"
+    "search_by": "Search by Block / Extrinsic / Account"
   },
   "result": "Result",
   "search": "Search",
@@ -73,5 +77,6 @@
   "validator": "Validator",
   "validators": "Validators",
   "value": "Value",
-  "view_all": "View All"
+  "view_all": "View All",
+  "view_more": "View More"
 }

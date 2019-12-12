@@ -268,7 +268,7 @@ export default {
       margin-top: 10px;
       padding: 13px 20px;
       .link {
-        color: var(--main-color);
+        color: var(--link-color);
         span {
           cursor: pointer;
         }
@@ -316,6 +316,9 @@ export default {
   }
   @media screen and (max-width:$screen-xs) {
     .container {
+      .table-top {
+        margin-top: 0;
+      }
       .table-bottom {
         flex-direction: column;
         .pagination-component {
@@ -337,7 +340,7 @@ export default {
           background-color: #fff;
           border-color: #dbdbdb;
           &::after {
-            border-color: var(--main-color);
+            border-color: #000;
             border-width: 2px;
             height: 10px;
             left: 7px;

@@ -196,7 +196,7 @@ export default {
       margin-top: 10px;
       padding: 13px 20px;
       .link {
-        color: var(--main-color);
+        color: var(--link-color);
         span {
           cursor: pointer;
         }

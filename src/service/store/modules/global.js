@@ -17,7 +17,7 @@ if (language_bak === null) {
 const global = {
   state: {
     language, // 当前UI语言
-    sourceSelected: getLocalStore("polkascan_source") || "kusama_cc3"
+    sourceSelected: getLocalStore("polkascan_source") || "kusama"
   },
   mutations: {
     SET_LANGUAGE: (state, language) => {

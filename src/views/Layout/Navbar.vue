@@ -1,5 +1,7 @@
 <template>
-  <div class="nav-bar-wrapper">
+  <div class="nav-bar-wrapper"
+    :class="{'is-home-page': isHomePage}"
+  >
     <div class="container space-between align-items-center">
       <router-link class="logo" to="/" tag="div"></router-link>
       <div class="right-menu align-items-center">
@@ -60,20 +62,49 @@
         </el-drawer>
       </div>
     </div>
+    <div class="nav-bar-search">
+      <search-input
+        class="search-input"
+        :selectList="selectList"
+        :placeholder="$t('placeholder.search_by')"
+      />
+    </div>
   </div>
 </template>
 <script>
 import { mapState } from "vuex";
+import SearchInput from '@/views/Components/SearchInput';
 export default {
   name: "NavBar",
+  components: {
+    SearchInput
+  },
   data() {
     return {
       drawer: false,
       direction: 'rtl',
+      selectList: [
+        {
+          label: this.$t('all'),
+          value: "all"
+        },
+        {
+          label: this.$t('block'),
+          value: "block"
+        },
+        {
+          label: this.$t('extrinsic'),
+          value: "extrinsic"
+        },
+        {
+          label: this.$t('account'),
+          value: "account"
+        }
+      ],
       sourceList: [
         {
           label: "Kusama CC3",
-          value: "kusama_cc3"
+          value: "kusama"
         },
         {
           label: "Darwinia Crayfish",
@@ -87,6 +118,20 @@ export default {
       return this.sourceList.find(item => {
         return item.value === this.sourceSelected;
       }).value;
+    },
+    isHomePage() {
+      let path = this.$route.path;
+      let result = false;
+      switch (path) {
+        case '/':
+        case '/404':
+        case '/noData':
+          result = true;
+          break;
+        default:
+            break;
+      }
+      return result
     },
     ...mapState({
       sourceSelected: state => state.global.sourceSelected
@@ -179,10 +224,22 @@ export default {
         background: url("../../assets/images/kusama-button.png") no-repeat left center;
         background-size: contain;
       }
-
-      .kusama_cc3-button {
-        background: url("../../assets/images/kusama-button.png") no-repeat left center;
-        background-size: contain;
+    }
+  }
+  .nav-bar-search {
+    display: none;
+  }
+  &.is-home-page {
+    height: 125px;
+    .container {
+      height: 50px;
+    }
+    .nav-bar-search {
+      display: block;
+      margin-top: 4px;
+      > div {
+        width: 760px;
+        margin: 0 auto;
       }
     }
   }
@@ -234,7 +291,7 @@ export default {
     text-align: center;
     .item {
       font-size: 20px;
-      padding: 20px 10px; 
+      padding: 20px 10px;
       margin: 10px 0;
       color: #FFF;
     }
@@ -253,6 +310,27 @@ export default {
 }
 </style>
 <style lang="scss">
+@each $theme in darwinia, kusama {
+  .#{$theme} {
+    > .nav-bar-wrapper {
+      background: var(--navbar-bg);
+      &.is-home-page {
+        background: url("../../assets/images/#{$theme}-banner.png") no-repeat center center;
+        background-size: cover;
+      }
+    }
+    @media screen and (max-width:$screen-xs) {
+      > .nav-bar-wrapper {
+        background: url("../../assets/images/#{$theme}-banner-mobile.png") no-repeat center center;
+        background-size: cover;
+        &.is-home-page {
+          background: url("../../assets/images/#{$theme}-banner-mobile.png") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
 .menu-dropdown.el-dropdown-menu {
   margin-top: 20px;
   background: #fff;

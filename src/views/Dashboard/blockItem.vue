@@ -65,7 +65,7 @@ export default {
         transform: translateY(-1px);
         font-size: 18px;
         font-weight: 600;
-        color: var(--main-color);
+        color: var(--link-color);
       }
     }
     .block-includes {
@@ -79,7 +79,7 @@ export default {
         display: flex;
         font-size: 12px;
         font-weight: 400;
-        color: var(--main-color);
+        color: var(--link-color);
         .event {
           margin-left: 10px;
         }

@@ -273,7 +273,7 @@ export default {
       margin-top: 10px;
       padding: 13px 20px;
       .link {
-        color: var(--main-color);
+        color: var(--link-color);
         span {
           cursor: pointer;
         }
@@ -311,6 +311,7 @@ export default {
   @media screen and (max-width:$screen-xs) {
     .container {
       .table-top {
+        margin-top: 0;
         .for-block {
           .link {
             max-width: 250px;
@@ -339,7 +340,7 @@ export default {
           background-color: #fff;
           border-color: #dbdbdb;
           &::after {
-            border-color: #5930dd;
+            border-color: #000;
             border-width: 2px;
             height: 10px;
             left: 7px;

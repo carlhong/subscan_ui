@@ -61,7 +61,9 @@
           </el-table-column>
           <el-table-column width="50">
             <template>
-              <icon-svg class="icon" icon-class="from-to-arrow" />
+              <div class="icon-wrapper">
+                <icon-svg class="iconfont" icon-class="from-to" />
+              </div>
             </template>
           </el-table-column>
           <el-table-column min-width="150" prop="to" :label="$t('to')">
@@ -273,7 +275,7 @@ export default {
       margin-top: 10px;
       padding: 13px 20px;
       .link {
-        color: var(--main-color);
+        color: var(--link-color);
         span {
           cursor: pointer;
         }
@@ -282,6 +284,14 @@ export default {
         vertical-align: -0.5em;
         font-size: 26px;
         user-select: none;
+      }
+      .icon-wrapper {
+        width: 26px;
+        height: 26px;
+        font-size: 26px;
+        border-radius: 50%;
+        background-color: #f6f4fd;
+        color: var(--main-color);
       }
       .detail-btn {
         width: 48px;
@@ -306,6 +316,7 @@ export default {
   @media screen and (max-width:$screen-xs) {
     .container {
       .table-top {
+        margin-top: 0;
         .for-block {
           .link {
             max-width: 250px;
@@ -334,7 +345,7 @@ export default {
           background-color: #fff;
           border-color: #dbdbdb;
           &::after {
-            border-color: #5930dd;
+            border-color: #000;
             border-width: 2px;
             height: 10px;
             left: 7px;

@@ -27,6 +27,14 @@
         @click="search"
         :loading="isBtnLoading"
       >{{$t('search')}}</el-button>
+      <el-button
+        class="search-button-mobile"
+        slot="append"
+        @click="search"
+        :loading="isBtnLoading"
+      >
+        <icon-svg class="icon" icon-class="search"/>
+      </el-button>
     </el-input>
   </div>
 </template>
@@ -142,6 +150,17 @@ export default {
       font-weight: 600;
       border-radius: 0 0px 0px 0;
     }
+    .search-button-mobile {
+      display: none;
+      height: 100%;
+      width: 50px;
+      background: var(--main-button-color);
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      border-radius: 0 0px 0px 0;
+      padding: 0;
+    }
   }
 }
 </style>
@@ -192,8 +211,26 @@ export default {
     }
   }
   @media screen and (max-width:$screen-xs) {
+    .search-input {
+      .el-input-group__append {
+        .search-button {
+          display: none;
+        }
+        .search-button-mobile {
+          display: block;
+        }
+      }
+    }
     .el-input-group__prepend {
       display: none;
+    }
+    .el-input__inner {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .el-input-group__append {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
     }
   }
 }

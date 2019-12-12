@@ -26,6 +26,9 @@
   "destination": "接收账户",
   "donate": "捐赠",
   "download_csv_file": "下载 CSV 文件",
+  "error": {
+    "404": "没有找到相关信息"
+  },
   "event": "事件",
   "event_id": "事件ID",
   "events": "事件",
@@ -35,6 +38,7 @@
   "extrinsic_id": "交易ID",
   "extrinsics_root": "交易根",
   "extrinsics": "交易",
+  "fold_up": "收起",
   "for": "",
   "from": "来自",
   "hash": "哈希",
@@ -73,5 +77,6 @@
   "validator": "验证人",
   "validators": "验证人",
   "value": "数量",
-  "view_all": "查看全部"
+  "view_all": "查看全部",
+  "view_more": "查看更多"
 }

@@ -104,7 +104,7 @@ export default {
       .value {
         font-size: 14px;
         font-weight: 600;
-        color: var(--main-color);
+        color: var(--link-color);
         cursor: pointer;
         width: 308px;
         @include text-truncate;
@@ -128,7 +128,7 @@ export default {
       .to {
         cursor: pointer;
         font-weight: 400;
-        color: var(--main-color);
+        color: var(--link-color);
         width: 86px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -144,7 +144,7 @@ export default {
     .right {
       font-size: 14px;
       font-weight: bold;
-      color: var(--main-color);
+      color: var(--link-color);
       line-height: 20px;
     }
   }

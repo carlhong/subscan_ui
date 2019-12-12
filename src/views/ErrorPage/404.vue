@@ -1,25 +1,16 @@
 <template>
   <div class="error-page-wrapper subscan-content">
     <div class="container">
-      <search-input
-        class="search-input"
-        :selectList="selectList"
-        :placeholder="$t('placeholder.search_by')"
-      />
       <div class="not-found">
-        <img class="not-found-img" src="./../../assets/images/404@2x.png" alt="404" />
-        <div class="no-data">{{$t('no_data')}}</div>
+        <img class="not-found-img" src="./../../assets/images/404.png" alt="404" />
+        <div class="no-data">{{$t('error.404')}}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SearchInput from "@/views/Components/SearchInput";
 export default {
-  components: {
-    SearchInput
-  },
   data() {
     return {
       selectList: [

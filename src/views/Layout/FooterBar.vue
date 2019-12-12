@@ -44,9 +44,8 @@ export default {
   .container {
     height: 50px;
     .copyright {
-      color: #7b70ae;
+      color: #FFF;
       font-size: 14px;
-      font-weight: bold;
     }
     .donate {
       font-size: 12px;
@@ -54,10 +53,9 @@ export default {
       flex: 1 1 auto;
       text-align: right;
       margin-right: 10px;
-      color: rgba(255,255,255,.5);
+      color: #fff;
       .donate-title {
         padding-right: 10px;
-        color: #fff;
       }
     }
     .poweredby{

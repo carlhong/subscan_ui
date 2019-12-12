@@ -13,7 +13,7 @@
       wrap-class="data-list subscan-card"
       view-class="view-box"
       :native="false"
-      v-loading="typeof transfers === 'undefined' && sourceSelected === 'darwinia'"
+      v-loading="typeof transfers === 'undefined'"
     >
       <div v-if="transfers && transfers.length > 0">
         <transfer-item
@@ -24,14 +24,12 @@
           :currentTime="currentTime"
         />
       </div>
-      <div v-else-if="sourceSelected === 'kusama_cc3'" class="transfer-placeholder-kusama-cc3">
-        <div class="coming-soon">
-          <img class="not-found-img" src="./../../assets/images/kusama-empty.png" alt="coming soon" />
-        </div>
-      </div>
-      <div v-else-if="sourceSelected === 'kusama'" class="transfer-placeholder-kusama">
+      <div v-else-if="transfers && transfers.length === 0" class="transfer-placeholder-kusama">
         <div class="not-found">
-          <img class="not-found-img" src="./../../assets/images/no-data.png" alt="no data" />
+          <div class="not-found-wrapper">
+            <img src="./../../assets/images/no-data.png" alt="no data" />
+            <div class="info">{{$t('no_data')}}</div>
+          </div>
         </div>
       </div>
     </el-scrollbar>
@@ -98,19 +96,20 @@ export default {
     right: 0;
     display: flex;
     align-items: center;
-  }
-  .coming-soon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    .not-found-wrapper {
+      position: relative;
+      margin: 0 auto;
+      width: 145px;
+      height: 125px;
+      img {
+        width: 100%;
+      }
+    }
     .info {
-      color: #98959F;
+      position: absolute;
+      left: 44px;
+      top: 81px;
+      color: #4572DE;
       font-size:14px;
       font-weight: bold;
     }
